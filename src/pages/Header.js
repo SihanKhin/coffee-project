@@ -22,12 +22,12 @@ const Header = () => {
          <section className=' w-28 h-28 ml-5 flex flex-col justify-center items-center' >
                <Link to='/'><img className=' object-cover' src={img1} alt="image" /></Link>
          </section>
-         <section className='flex flex-row justify-center items-center  w-32 md:w-96'>
+         <section className='flex flex-row justify-center items-center  w-32 md:w-1/2'>
               <button className=' md:hidden text-lg cursor-pointer' onClick={handleOpenSidebar}>{hamburger}</button>
-               <ul className=' list-none hidden md:flex md:flex-row md:justify-center'>
+               <ul className=' list-none hidden  md:flex md:flex-row md:justify-between md:items-center'>
                   <Link to='/'><li className='hover:opacity-75 cursor-pointer text-2xl'><FontAwesomeIcon icon={faHouse} /></li></Link>
                   <nav className='relative'>
-                    <Link to='/cart'><li className='ml-10 text-2xl hover:opacity-75 cursor-pointer'><FontAwesomeIcon icon={faCartShopping} /></li></Link>
+                    <Link to='/cart'><li className='ml-24 text-2xl hover:opacity-75 cursor-pointer'><FontAwesomeIcon icon={faCartShopping} /></li></Link>
                       <nav className='  absolute bottom-5 right-0 bg-slate-50 rounded-full w-4 h-4 flex items-center justify-center'>
                           <span className='text-xs text-black font-Roboto font-medium'>{quantity}</span>
                       </nav>
