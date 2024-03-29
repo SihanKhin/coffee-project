@@ -31,6 +31,11 @@ const Coffee = () => {
   const handleMouseLeave = () => {
     setHoveredProductId(null)
   }
+  if(!products){
+    return <div className='flex flex-col justify-center items-center min-h-screen w-full'>
+      <span className='text-2xl font-Roboto font-normal'>Loading...</span>
+          </div>
+  }
 
   const render = products.map(pro=>(
       <div  onMouseEnter={() => handleMouseEnter(pro.id)} 
