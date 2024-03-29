@@ -19,8 +19,8 @@ const Header = () => {
   return (
     <>
     <header className=' sticky fixed top-0 z-50 w-full h-24  bg-slate-100 flex flex-row justify-between items-center'>
-         <section className=' w-28 h-28 ml-5 flex flex-col justify-center items-center' >
-               <Link to='/'><img className=' object-cover' src={img1} alt="image" /></Link>
+         <section className='w-20 md:w-52 h-20 md:h-28 ml-5 flex flex-col justify-center items-center' >
+               <Link to='/'><img className=' object-cover h-20 md:h-28'  src={img1} alt="image" /></Link>
          </section>
          <section className='flex flex-row justify-center items-center  w-32 md:w-1/2'>
               <button className=' md:hidden text-lg cursor-pointer' onClick={handleOpenSidebar}>{hamburger}</button>
