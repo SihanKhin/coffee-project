@@ -4,6 +4,7 @@ import Sidebar from './Sidebar'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import { getAllProductInCart } from '../features/coffees/coffeeSlice'
 import { useSelector } from 'react-redux'
 const Header = () => {
@@ -34,6 +35,11 @@ const Header = () => {
                   </nav>
                </ul>
          </section> 
+       {/*   <div className={`transition-transform duration-300 ${hidd}
+         top-4 right-10 absolute w-11/12 flex flex-row justify-start items-center rounded-md bg-emerald-100 text-lime-500 min-h-12 
+         `}>
+               <FontAwesomeIcon  className='ml-2' icon={faCircleCheck}/><span className='ml-2'>succesfully added to cart</span>
+         </div> */}
     </header>
     <Sidebar open={open}/>
     </>

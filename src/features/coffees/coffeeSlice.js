@@ -37,7 +37,9 @@ export const deleteAllProduct = createAsyncThunk('coffee/deleteAllProduct',async
 const coffeeSlice = createSlice({
       name: "products",
       initialState,
-      reducers:{},
+      reducers:{
+         
+      },
       extraReducers(builder){
          builder
          .addCase(fetchData.fulfilled,(state,action)=>{

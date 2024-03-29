@@ -13,6 +13,7 @@ const Home = () => {
                 <span className='text-center text-base md:text-2xl text-red-950 font-Roboto font-normal italic'>Make your day feels great</span>
                 <a href="#allproduct"><button className='  bg-red-950 text-white text-sm w-32 h-8 md:text-base font-Roboto italic mt-4 md:mt-8 hover:underline rounded-sm'>Checkout Now</button></a>
          </div>
+       
     </main>
     <nav id='allproduct'  className='  my-5 flex justify-center items-center w-full text-red-950'><h1 className=' text-3xl font-Roboto font-normal'>All Products Here</h1></nav>
     <Coffee />

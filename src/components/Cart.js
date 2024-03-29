@@ -5,28 +5,72 @@ import { deleteProduct } from '../features/coffees/coffeeSlice'
 import { deleteAllProduct } from '../features/coffees/coffeeSlice'
 import { getAllProductInCart } from '../features/coffees/coffeeSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faUnderline } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 const Cart = () => {
   const dispatch = useDispatch();
   const products = useSelector(getAllProductInCart);
   useEffect(()=>{
     dispatch(fetchData());
 },[dispatch])
+  const showDeleteToast = () => {
+    toast.error('All Products Deleted !', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: undefined,
+      });
+  }
+  const showDelete1Toast = () => {
+    toast.error('1 Quantity Decreased !', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: undefined,
+      });
+  }
+  const showincrease = () => {
+    toast.success('increased 1 quantity', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: undefined,
+      });
+  }
   if(!products){
     return <p>No Products</p>
   }
   const decreaseQuantity = (proId) =>{
       dispatch(deleteProduct(proId))
+      showDelete1Toast();
+
   }
   const increaseQuantity = (proId) =>{
       dispatch(addToCart(proId))
+      showincrease()
   }
   const deleteEntireProduct = (productId) =>{
     dispatch(deleteAllProduct(productId))
+    showDeleteToast()
   }
   console.log(products)
   const productQuantity = products.reduce((acc,cur)=>(
@@ -114,14 +158,14 @@ const Cart = () => {
                   </div>
                    <div className='w-full flex p-2 flex-row justify-between items-center ml-2 md:ml-1 '>
                      <span className='text-xs font-Roboto font-medium'>{displayQuantity} {productQuantity}</span>
-                     <span className=' mr-4 md:mr-2 text-xs font-Roboto font-medium'>$ {totalPrice}</span>
+                     <span className=' mr-4 md:mr-2 text-xs font-Roboto font-medium'>$ {parseFloat(totalPrice).toFixed(2)}</span>
                   </div>
                     <div className='w-full flex flex-col justify-center items-center'>
                     <hr className='w-11/12 border border-gray-300'/>
                     </div> 
                    <div className='w-full flex p-2 flex-row justify-between items-center ml-2 md:ml-1'>
                      <span className='text-xs font-Roboto font-medium'>TOTAL PRICE</span>
-                     <span className=' mr-4 md:mr-2 text-xs font-Roboto font-medium'>$ {totalPrice}</span>
+                     <span className=' mr-4 md:mr-2 text-xs font-Roboto font-medium'>$ {parseFloat(totalPrice).toFixed(2)}</span>
                   </div>
                   <div className=' w-full flex justify-center items-center
                   '>
