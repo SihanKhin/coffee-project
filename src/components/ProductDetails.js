@@ -4,6 +4,7 @@ import { getAllId } from '../features/coffees/coffeeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addToCart } from '../features/coffees/coffeeSlice';
+import { toast } from 'react-toastify'
 function ProductDetails() {
   const dispatch = useDispatch();
   const {proId} = useParams();
@@ -30,6 +31,19 @@ function ProductDetails() {
       ));
     }
   }
+  const Showtoast = () => {
+    toast.success('successfully added to cart', {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: undefined,
+      });
+  }
   const handleAddToCart = (productId)=>{
         const {id,image_url,quantity,price,name} = productId;
         dispatch(addToCart({
@@ -39,6 +53,7 @@ function ProductDetails() {
           price:price,
           name:name
         }))
+        Showtoast();
   }
   if(!product){
     return <nav className='flex flex-grow min-h-screen justify-center items-center w-full flex-col'>
