@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addToCart } from '../features/coffees/coffeeSlice';
 import { toast } from 'react-toastify'
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 function ProductDetails() {
   const dispatch = useDispatch();
   const {proId} = useParams();
@@ -61,8 +64,13 @@ function ProductDetails() {
     </nav>
   }
   return (
-     <main className='flex flex-grow w-full min-h-screen flex-col justify-center items-center '>
+     <main className='flex relative flex-grow w-full min-h-screen flex-col justify-center items-center '>
+        <Link to="/"><div className=' absolute left-7 top-10 text-lg hover:opacity-75 cursor-pointer
+        '>
+           <FontAwesomeIcon icon={faArrowLeftLong}/>
+        </div></Link>
           <div className='flex p-10 flex-col w-full justify-center items-center'>
+            
             <h1 className='text-5xl font-Roboto font-semibold'>Product Details</h1>
             </div>
          <div className=' flex flex-col md:flex-row  justify-start items-center w-full'>

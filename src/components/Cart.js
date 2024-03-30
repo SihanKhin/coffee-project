@@ -17,7 +17,7 @@ const Cart = () => {
   useEffect(()=>{
     dispatch(fetchData());
 },[dispatch])
-  const showDeleteToast = () => {
+  /* const showDeleteToast = () => {
     toast.error('All Products Deleted !', {
       position: "top-center",
       autoClose: 2000,
@@ -29,8 +29,8 @@ const Cart = () => {
       theme: "light",
       transition: undefined,
       });
-  }
-  const showDelete1Toast = () => {
+  } */
+/*   const showDelete1Toast = () => {
     toast.error('1 Quantity Decreased !', {
       position: "top-center",
       autoClose: 2000,
@@ -42,8 +42,8 @@ const Cart = () => {
       theme: "light",
       transition: undefined,
       });
-  }
-  const showincrease = () => {
+  } */
+/*   const showincrease = () => {
     toast.success('increased 1 quantity', {
       position: "top-center",
       autoClose: 2000,
@@ -55,22 +55,22 @@ const Cart = () => {
       theme: "light",
       transition: undefined,
       });
-  }
+  } */
   if(!products){
     return <p>No Products</p>
   }
   const decreaseQuantity = (proId) =>{
       dispatch(deleteProduct(proId))
-      showDelete1Toast();
+      //showDelete1Toast();
 
   }
   const increaseQuantity = (proId) =>{
       dispatch(addToCart(proId))
-      showincrease()
+      //showincrease()
   }
   const deleteEntireProduct = (productId) =>{
     dispatch(deleteAllProduct(productId))
-    showDeleteToast()
+    //showDeleteToast()
   }
   console.log(products)
   const productQuantity = products.reduce((acc,cur)=>(
