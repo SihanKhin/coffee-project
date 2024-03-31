@@ -64,20 +64,19 @@ function ProductDetails() {
     </nav>
   }
   return (
-     <main className='flex relative flex-grow w-full min-h-screen flex-col justify-center items-center '>
-        <Link to="/"><div className=' absolute left-7 top-10 text-lg hover:opacity-75 cursor-pointer
+     <main className='flex  relative flex-grow w-full min-h-screen flex-col justify-start items-center '>
+        <Link to="/"><div className=' absolute left-7 top-9 md:top-10 text-lg hover:opacity-75 cursor-pointer
         '>
            <FontAwesomeIcon icon={faArrowLeftLong}/>
         </div></Link>
-          <div className='flex p-10 flex-col w-full justify-center items-center'>
-            
-            <h1 className='text-5xl font-Roboto font-semibold'>Product Details</h1>
+          <div className='flex p-8 flex-col w-full justify-center items-center'>
+            <h1 className=' text-3xl md:text-5xl font-Roboto font-semibold'>PRODUCT DETAILS</h1>
             </div>
          <div className=' flex flex-col md:flex-row  justify-start items-center w-full'>
            <div className='flex flex-col justify-center  items-center w-full'>
-             <img className=' object-cover h-80  md:h-full w-full' src={product.image_url} alt="image" />
+             <img className=' object-cover h-96 md:h-full w-full' src={product.image_url} alt="image" />
            </div>
-           <div className='flex flex-col justify-center items-center w-96  md:w-full'>
+           <div className='flex flex-col justify-center items-center w-96  md:w-full p-4'>
                <div className=' md:mb-10'>
                    <h1 className='text-2xl md:text-6xl font-Roboto font-medium'>{product.name}</h1>
                </div>
