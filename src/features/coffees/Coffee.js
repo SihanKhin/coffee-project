@@ -15,6 +15,8 @@ const Coffee = () => {
   useEffect(()=>{
        dispatch(fetchData())
   },[dispatch])
+
+
   const Showtoast = () => {
     toast.success('successfully added to cart', {
       position: "top-center",
@@ -48,6 +50,7 @@ const Coffee = () => {
   const handleMouseLeave = () => {
     setHoveredProductId(null)
   }
+  
   if(!products){
     return <div className='flex flex-col justify-center items-center min-h-screen w-full'>
       <span className='text-2xl font-Roboto font-normal'>Loading...</span>
@@ -81,6 +84,7 @@ const Coffee = () => {
   }
   return (
     <main className=' grid place-content-center p-4 gap-8 md:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  min-h-screen bg-slate-50'>
+      
         {render}
     </main>
   )

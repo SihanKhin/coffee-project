@@ -7,6 +7,7 @@ import { faCartShopping, faHouse } from '@fortawesome/free-solid-svg-icons'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import { getAllProductInCart } from '../features/coffees/coffeeSlice'
 import { useSelector } from 'react-redux'
+import SearchBar from '../components/SearchBar'
 const Header = () => {
   const [open,setOpen] = useState(false)
   const handleOpenSidebar = ()=>{
@@ -16,15 +17,17 @@ const Header = () => {
   const hamburger = open ? '✕' : '☰';
   const quantity = products.reduce((acc,cur)=>
      acc + cur.quantity
-   ,0)
+   ,0);
+
   return (
     <>
     <header className=' sticky fixed top-0 z-50 w-full h-24  bg-slate-100 flex flex-row justify-between items-center'>
          <section className='w-20 md:w-52 h-20 md:h-28 ml-5 flex flex-col justify-center items-center' >
                <Link to='/'><img className=' object-cover h-20 md:h-28'  src={img1} alt="image" /></Link>
          </section>
-         <section className='flex flex-row justify-center items-center  w-32 md:w-1/2'>
-              <button className=' md:hidden text-lg cursor-pointer' onClick={handleOpenSidebar}>{hamburger}</button>
+          <SearchBar />
+         <section className='flex flex-row justify-center items-center w-36 md:w-72'>
+              <button className=' flex justify-center items-center md:hidden text-2xl cursor-pointer' onClick={handleOpenSidebar}>{hamburger}</button>
                <ul className=' list-none hidden  md:flex md:flex-row md:justify-between md:items-center'>
                   <Link to='/'><li className='hover:opacity-75 cursor-pointer text-2xl'><FontAwesomeIcon icon={faHouse} /></li></Link>
                   <nav className='relative'>
