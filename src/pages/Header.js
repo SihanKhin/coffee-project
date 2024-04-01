@@ -3,8 +3,7 @@ import img1 from '../logo/photo_2024-03-27_18-11-19-removebg-preview.png'
 import Sidebar from './Sidebar'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping, faHouse } from '@fortawesome/free-solid-svg-icons'
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping, faHouse, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { getAllProductInCart } from '../features/coffees/coffeeSlice'
 import { useSelector } from 'react-redux'
 import SearchBar from '../components/SearchBar'
@@ -18,16 +17,25 @@ const Header = () => {
   const quantity = products.reduce((acc,cur)=>
      acc + cur.quantity
    ,0);
-
+  const [openSearch,setOpenSearch] = useState(false);
+  const handleOpenSearch = ()=>{
+    setOpenSearch(!openSearch);
+  }
   return (
     <>
     <header className=' sticky fixed top-0 z-50 w-full h-24  bg-slate-100 flex flex-row justify-between items-center'>
-         <section className='w-20 md:w-52 h-20 md:h-28 ml-5 flex flex-col justify-center items-center' >
+         <section className='w-52 md:w-52 h-20 md:h-28 ml-5 flex flex-col justify-center items-center' >
                <Link to='/'><img className=' object-cover h-20 md:h-28'  src={img1} alt="image" /></Link>
          </section>
-          <SearchBar />
+          <SearchBar openSearch={openSearch} />
          <section className='flex flex-row justify-center items-center w-36 md:w-72'>
-              <button className=' flex justify-center items-center md:hidden text-2xl cursor-pointer' onClick={handleOpenSidebar}>{hamburger}</button>
+             <nav className=' md:hidden flex flex-row justify-between items-center w-20'>
+              <button onClick={handleOpenSearch} className=' hover:bg-gray-400 hover:text-white text-sm border border-gray-400 rounded-full w-7 h-7 bg-slate-100'>
+                <FontAwesomeIcon icon={faSearch}/>
+                </button>
+               <button className=' flex justify-center items-center md:hidden text-2xl cursor-pointer' onClick={handleOpenSidebar}>{hamburger}</button>
+              </nav>
+             
                <ul className=' list-none hidden  md:flex md:flex-row md:justify-between md:items-center'>
                   <Link to='/'><li className='hover:opacity-75 cursor-pointer text-2xl'><FontAwesomeIcon icon={faHouse} /></li></Link>
                   <nav className='relative'>

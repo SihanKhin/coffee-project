@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faRemove } from '@fortawesome/free-solid-svg-icons'
-const SearchBar = () => {
+const SearchBar = ({openSearch}) => {
     const dispatch = useDispatch();
     const products = useSelector(getAllData);
     const [search, setSearch] = useState('');
@@ -31,10 +31,11 @@ const SearchBar = () => {
     const cancelSearch = () => {
         setSearch('');
       };
+    const isOpen = openSearch ? 'block' : 'hidden';
     return (
-      <section className='flex flex-1  flex-col justify-center items-center'>
-        <form  className='w-full flex justify-center items-center' action="">
-            <div className=' w-3/4 relative flex justify-center items-center'>
+      <section className='flex w-full  flex-col justify-center items-center'>
+        <form  className={`transition-all duration-300 ${isOpen} w-full md:flex justify-center items-center`} action="">
+            <div className=" w-3/4 relative flex justify-center items-center">
                <button className='flex text-sm justify-center items-center text-gray-500 absolute left-2'>
                 <FontAwesomeIcon icon={faSearch} />
                 </button>
