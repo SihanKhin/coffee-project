@@ -29,8 +29,8 @@ const Header = () => {
          </section>
           <SearchBar openSearch={openSearch} />
          <section className='flex flex-row justify-center items-center w-36 md:w-72'>
-             <nav className=' md:hidden flex flex-row justify-between items-center w-20'>
-              <button onClick={handleOpenSearch} className=' hover:bg-gray-400 hover:text-white text-sm border border-gray-400 rounded-full w-7 h-7 bg-slate-100'>
+             <nav className=' md:hidden flex flex-row justify-between items-center w-24 mr-2'>
+              <button onClick={handleOpenSearch} className=' hover:bg-gray-400 hover:text-white text-white text-sm border-3 border-gray-100 rounded-full w-7 h-7 bg-black'>
                 <FontAwesomeIcon icon={faSearch}/>
                 </button>
                <button className=' flex justify-center items-center md:hidden text-2xl cursor-pointer' onClick={handleOpenSidebar}>{hamburger}</button>
